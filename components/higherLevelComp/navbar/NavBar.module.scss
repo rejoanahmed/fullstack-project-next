@@ -1,0 +1,8 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  .navitems > * {
+    padding-left: 20px;
+  }
+}
