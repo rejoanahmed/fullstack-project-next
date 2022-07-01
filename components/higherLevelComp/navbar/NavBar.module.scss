@@ -1,8 +1,45 @@
-.nav {
+.header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0.5rem 2rem;
+  background-color: blueviolet;
+  position: relative;
+  width: 100%;
 
-  .navitems > * {
-    padding-left: 20px;
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+  nav {
+    display: flex;
+    gap: 1.3rem;
+  }
+}
+.toggleMenuIcon {
+  display: none;
+}
+@media only screen and (max-width: 440px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    nav {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: hsl(0, 0, 100%, 0.1);
+      backdrop-filter: blur(1rem);
+      inset: 0 0 0 30%;
+    }
+    .toggleMenuIcon {
+      display: block;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
   }
 }

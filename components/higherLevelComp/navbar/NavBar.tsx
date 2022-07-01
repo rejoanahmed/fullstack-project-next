@@ -1,6 +1,8 @@
-import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./NavBar.module.scss";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import NavLink from "../../lowerLevelComp/navLink/NavLink";
 export interface INavItems {
   title: string;
   url: string;
@@ -11,21 +13,34 @@ export interface INavBar {
 }
 
 const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
+  const [menu, setMenu] = useState(false);
+  const toggleMenu = () => {
+    setMenu((pr) => !pr);
+  };
+
   return (
-    <nav className={styles.nav}>
+    <header className={styles.header}>
       <div>
-        <Link href={"/"}>{brand}</Link>
+        <NavLink href={"/"}>{brand}</NavLink>
       </div>
-      <div className={styles.navitems}>
+      <nav className={menu && styles.showMenu}>
         {navItems.map((item, id) => {
           return (
-            <Link key={id} href={item.url}>
-              {item.title}
-            </Link>
+            <div key={id}>
+              <NavLink href={item.url}>{item.title}</NavLink>
+            </div>
           );
         })}
+      </nav>
+      <div className={styles.toggleMenuIcon}>
+        <button onClick={toggleMenu}>
+          <MenuIcon />
+        </button>
+        <button onClick={toggleMenu}>
+          <MenuOpenIcon />
+        </button>
       </div>
-    </nav>
+    </header>
   );
 };
 
