@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./NavBar.module.scss";
+// import styles from "./NavBar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import NavLink from "../../lowerLevelComp/navLink/NavLink";
@@ -19,11 +19,11 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
   };
 
   return (
-    <header className={styles.header}>
+    <header>
       <div>
         <NavLink href={"/"}>{brand}</NavLink>
       </div>
-      <nav className={menu && styles.showMenu}>
+      <nav>
         {navItems.map((item, id) => {
           return (
             <div key={id}>
@@ -32,7 +32,7 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
           );
         })}
       </nav>
-      <div className={styles.toggleMenuIcon}>
+      <div>
         <button onClick={toggleMenu}>
           <MenuIcon />
         </button>
