@@ -27,9 +27,9 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
-          <PrimaryLayout>
-            <Component {...pageProps} />
-          </PrimaryLayout>
+          {/* <PrimaryLayout> */}
+          <Component {...pageProps} />
+          {/* </PrimaryLayout> */}
         </ThemeProvider>
       </CacheProvider>
     </StyledEngineProvider>
