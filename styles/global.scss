@@ -13,3 +13,10 @@ body {
     overflow-x: hidden;
   }
 }
+.MuiAutocomplete-paper {
+  border: 2px solid green;
+}
+.MuiAutocomplete-popper {
+  gap: 5px;
+  background-color: aqua;
+}
