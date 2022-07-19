@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="w-screen flex justify-center h-screen items-center bg-slate-700">
       <Autocomplete
-        className="w-72 bg-orange-400 rounded-lg text-white"
+        className="w-72 rounded-lg text-white"
         id="country"
         options={countries}
         renderInput={(params) => (
@@ -18,6 +18,8 @@ export default function Home() {
             }}
           />
         )}
+        disablePortal
+        ChipProps={{}}
         getOptionLabel={(option: CountryType) => option.label}
         renderOption={(props, option: CountryType, state) => (
           <Renderli {...props} option={option} />
@@ -29,16 +31,20 @@ export default function Home() {
 
 function Renderli(props) {
   return (
-    <li {...props} className="bg-orange-500">
-      <Image
-        src={`https://flagcdn.com/w20/${props.option.code.toLowerCase()}.png`}
-        alt={props.option.label}
-        width={20}
-        height={15}
-        loading="lazy"
-      />
-      {props.option.label} ({props.option.code}) +{props.option.phone}
-    </li>
+    <div {...props} className="p-4 flex gap-2">
+      <div>
+        <Image
+          src={`https://flagcdn.com/w20/${props.option.code.toLowerCase()}.png`}
+          alt={props.option.label}
+          width={20}
+          height={15}
+          loading="lazy"
+        />
+      </div>
+      <p>
+        {props.option.label} ({props.option.code}) +{props.option.phone}
+      </p>
+    </div>
   );
 }
 
