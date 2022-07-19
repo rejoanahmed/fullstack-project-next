@@ -10,6 +10,7 @@ import createEmotionCache from "../utility/createEmotionCache";
 import lightThemeOptions from "../styles/theme/lightTheme";
 import "../styles/global.scss";
 import PrimaryLayout from "../components/layouts/primary/PrimaryLayout";
+import { StyledEngineProvider } from "@mui/material/styles";
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -22,14 +23,16 @@ const lightTheme = createTheme(lightThemeOptions);
 const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-        <PrimaryLayout>
-          <Component {...pageProps} />
-        </PrimaryLayout>
-      </ThemeProvider>
-    </CacheProvider>
+    <StyledEngineProvider injectFirst>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          <PrimaryLayout>
+            <Component {...pageProps} />
+          </PrimaryLayout>
+        </ThemeProvider>
+      </CacheProvider>
+    </StyledEngineProvider>
   );
 };
 export default MyApp;
