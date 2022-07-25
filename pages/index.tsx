@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="w-screen flex justify-center h-screen items-center bg-slate-700">
+    <div className="w-screen flex justify-center h-screen items-center bg-slate-900">
       <Autocomplete
         className="w-72 rounded-lg text-white"
         id="country"
@@ -31,7 +31,7 @@ export default function Home() {
 
 function Renderli(props) {
   return (
-    <div {...props} className="p-4 flex gap-2">
+    <div {...props} className="p-4 flex gap-2 bg-gray-700">
       <div>
         <Image
           src={`https://flagcdn.com/w20/${props.option.code.toLowerCase()}.png`}
@@ -41,7 +41,7 @@ function Renderli(props) {
           loading="lazy"
         />
       </div>
-      <p>
+      <p className="text-white">
         {props.option.label} ({props.option.code}) +{props.option.phone}
       </p>
     </div>
