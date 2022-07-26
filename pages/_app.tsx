@@ -11,18 +11,29 @@ import lightThemeOptions from "../styles/theme/lightTheme";
 import "../styles/global.scss";
 import PrimaryLayout from "../components/layouts/primary/PrimaryLayout";
 import { StyledEngineProvider } from "@mui/material/styles";
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
+  Component: NextPageWithLayout;
 }
 
+// type AppPropsWithLayout = AppProps & {
+//   Component: NextPageWithLayout;
+// };
+
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 const clientSideEmotionCache = createEmotionCache();
 
 const lightTheme = createTheme(lightThemeOptions);
 
-const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
+const MyApp = (props: MyAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  return (
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return getLayout(
     <StyledEngineProvider injectFirst>
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={lightTheme}>

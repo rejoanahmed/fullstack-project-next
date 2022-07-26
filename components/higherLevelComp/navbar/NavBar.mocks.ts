@@ -5,19 +5,23 @@ const base: INavBar = {
   navItems: [
     {
       title: "Home",
-      url: "./",
+      url: "/",
     },
     {
       title: "About",
-      url: "./about",
+      url: "/about",
     },
     {
-      title: "Courses",
-      url: "./courses",
+      title: "Services",
+      url: "/services",
+    },
+    {
+      title: "Pricing",
+      url: "/pricing",
     },
     {
       title: "Contact",
-      url: "./contact",
+      url: "/contact",
     },
   ],
 };
