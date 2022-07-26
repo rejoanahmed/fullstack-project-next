@@ -66,7 +66,7 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
         </div>
       </div>
       {open && (
-        <div className="md:hidden">
+        <div className="md:hidden absolute w-full">
           <ul className="flex flex-col">
             {navItems.map(({ title, url }, id) => {
               const isActive = route === url;
