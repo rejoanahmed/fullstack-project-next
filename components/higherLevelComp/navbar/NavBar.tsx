@@ -25,7 +25,7 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
 
   const aciveClassName =
     "text-white bg-blue-700 md:bg-transparent md:text-blue-700";
-  const notActiveClassName = "hover:text-blue-200";
+  const notActiveClassName = "hover:bg-gray-200";
 
   return (
     <nav className="bg-white border-gray-200 py-2 rounded">
@@ -66,7 +66,7 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
         </div>
       </div>
       {open && (
-        <div className="md:hidden bg-gray-700">
+        <div className="md:hidden">
           <ul className="flex flex-col">
             {navItems.map(({ title, url }, id) => {
               const isActive = route === url;
