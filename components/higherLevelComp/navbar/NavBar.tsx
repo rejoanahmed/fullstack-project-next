@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import styles from "./NavBar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
@@ -14,12 +14,11 @@ export interface INavBar {
   brand: string;
   navItems: INavItems[];
 }
-const list = {
+const list: Variants = {
   visible: {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.3,
     },
   },
   hidden: {
@@ -30,7 +29,7 @@ const list = {
   },
 };
 
-const item = {
+const item: Variants = {
   visible: (i: number) => ({
     y: 0,
     transition: {
