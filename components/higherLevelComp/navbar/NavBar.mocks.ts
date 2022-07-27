@@ -1,7 +1,7 @@
 import { INavBar } from "./NavBar";
 
 const base: INavBar = {
-  brand: "IHSB",
+  brand: "CUHK",
   navItems: [
     {
       title: "Home",
@@ -12,8 +12,8 @@ const base: INavBar = {
       url: "/about",
     },
     {
-      title: "Services",
-      url: "/services",
+      title: "Colleges",
+      url: "/colleges",
     },
     {
       title: "Pricing",

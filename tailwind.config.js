@@ -8,7 +8,11 @@ module.exports = {
 
   important: "#__next",
   theme: {
-    extend: {},
+    extend: {
+      translate: {
+        100: "100%",
+      },
+    },
   },
   plugins: [],
 };

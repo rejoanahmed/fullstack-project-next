@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 // import styles from "./NavBar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import NavLink from "../../lowerLevelComp/navLink/NavLink";
-import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
+import { Opacity } from "@mui/icons-material";
 export interface INavItems {
   title: string;
   url: string;
@@ -28,7 +27,7 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
   const notActiveClassName = "hover:bg-gray-200";
 
   return (
-    <nav className="bg-white border-gray-200 py-2 rounded">
+    <nav className="bg-white border-gray-200 py-2 rounded overflow-hidden relative">
       <div className="container flex flex-wrap justify-between items-center mx-auto px-4">
         <Link href="/" className="flex items-center">
           <span className="self-center text-xl font-semibold whitespace-nowrap">
@@ -65,30 +64,38 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
           </ul>
         </div>
       </div>
-      {open && (
-        <div className="md:hidden absolute w-full">
-          <ul className="flex flex-col">
-            {navItems.map(({ title, url }, id) => {
-              const isActive = route === url;
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.5 }}
+            exit={{ x: "-100%" }}
+            className="md:hidden"
+          >
+            <ul className="flex flex-col">
+              {navItems.map(({ title, url }, id) => {
+                const isActive = route === url;
 
-              const cName = isActive ? aciveClassName : notActiveClassName;
-              return (
-                <li key={id}>
-                  <Link href={url}>
-                    <span
-                      className={"block py-2 px-4 rounded text-center ".concat(
-                        cName
-                      )}
-                    >
-                      {title}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+                const cName = isActive ? aciveClassName : notActiveClassName;
+                return (
+                  <li key={id}>
+                    <Link href={url}>
+                      <span
+                        className={"block py-2 px-4 rounded text-center ".concat(
+                          cName
+                        )}
+                      >
+                        {title}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

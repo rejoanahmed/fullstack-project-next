@@ -8,7 +8,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import createEmotionCache from "../utility/createEmotionCache";
 import lightThemeOptions from "../styles/theme/lightTheme";
-import "../styles/global.scss";
+import "../styles/global.css";
 import PrimaryLayout from "../components/layouts/primary/PrimaryLayout";
 import { StyledEngineProvider } from "@mui/material/styles";
 import type { ReactElement, ReactNode } from "react";
