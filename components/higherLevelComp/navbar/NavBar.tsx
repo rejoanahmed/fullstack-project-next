@@ -14,6 +14,31 @@ export interface INavBar {
   brand: string;
   navItems: INavItems[];
 }
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+const item = {
+  visible: (i: number) => ({
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+    },
+  }),
+  hidden: { y: 15 },
+};
 
 const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
   const [open, setOpen] = useState(false);
@@ -67,19 +92,27 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.15 }}
             exit={{ x: "-100%" }}
             className="md:hidden"
           >
-            <ul className="flex flex-col">
+            <motion.ul
+              initial="hidden"
+              animate="visible"
+              variants={list}
+              className="flex flex-col"
+            >
               {navItems.map(({ title, url }, id) => {
                 const isActive = route === url;
 
                 const cName = isActive ? aciveClassName : notActiveClassName;
                 return (
-                  <li key={id}>
+                  <motion.li
+                    custom={id}
+                    variants={item}
+                    transition={{ duration: 1 }}
+                    key={id}
+                  >
                     <Link href={url}>
                       <span
                         className={"block py-2 px-4 rounded text-center ".concat(
@@ -89,10 +122,10 @@ const NavBar: React.FC<INavBar> = ({ brand, navItems }) => {
                         {title}
                       </span>
                     </Link>
-                  </li>
+                  </motion.li>
                 );
               })}
-            </ul>
+            </motion.ul>
           </motion.div>
         )}
       </AnimatePresence>
