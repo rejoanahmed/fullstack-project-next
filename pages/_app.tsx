@@ -33,14 +33,14 @@ const lightTheme = createTheme(lightThemeOptions);
 const MyApp = (props: MyAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const getLayout = Component.getLayout ?? ((page) => page);
-  return getLayout(
+  return (
     <StyledEngineProvider injectFirst>
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
-          {/* <PrimaryLayout> */}
-          <Component {...pageProps} />
-          {/* </PrimaryLayout> */}
+          <PrimaryLayout>
+            <Component {...pageProps} />
+          </PrimaryLayout>
         </ThemeProvider>
       </CacheProvider>
     </StyledEngineProvider>

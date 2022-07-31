@@ -1,10 +1,5 @@
-import PrimaryLayout from "../components/layouts/primary/PrimaryLayout";
-import { NextPageWithLayout } from "./_app";
-const Index: NextPageWithLayout = () => {
-  return <main></main>;
+const Messages = () => {
+  return <main>Messages</main>;
 };
 
-Index.getLayout = function getLayout(page) {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
-};
-export default Index;
+export default Messages;
