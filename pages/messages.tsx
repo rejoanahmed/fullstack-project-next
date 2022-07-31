@@ -1,11 +1,7 @@
 import PrimaryLayout from "../components/layouts/primary/PrimaryLayout";
 import { NextPageWithLayout } from "./_app";
 const Index: NextPageWithLayout = () => {
-  return (
-    <main>
-      <h1>hwllo</h1>
-    </main>
-  );
+  return <main></main>;
 };
 
 Index.getLayout = function getLayout(page) {

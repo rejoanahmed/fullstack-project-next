@@ -1,14 +1,11 @@
 import React from "react";
-import Footer from "../../higherLevelComp/footer/Footer";
-import NavBar from "../../higherLevelComp/navbar/NavBar";
-import { mockNavBarProps } from "../../higherLevelComp/navbar/NavBar.mocks";
+import TwitterNavBar from "../../higherLevelComp/navbar/TwitterNavBar";
 
 function PrimaryLayout({ children }) {
   return (
     <>
-      <NavBar {...mockNavBarProps.base} />
+      <TwitterNavBar />
       <main>{children}</main>
-      <Footer />
     </>
   );
 }
