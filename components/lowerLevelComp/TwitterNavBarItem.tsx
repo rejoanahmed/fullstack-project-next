@@ -24,8 +24,8 @@ export default TwitterNavBarItem;
 function ActiveState({ Icon, title }) {
   return (
     <div className="flex flex-row items-center">
-      <Icon />
-      <span className="font-bold ml-4">{title}</span>
+      <Icon color="primary" />
+      <span className="font-bold ml-4 text-blue-600">{title}</span>
     </div>
   );
 }
