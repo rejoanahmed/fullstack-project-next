@@ -5,7 +5,7 @@ import React from "react";
 function TwitterNavBarItem({ ActiveIcon, InactiveIcon, title, url }) {
   const { route } = useRouter();
   return (
-    <li className="mt-4">
+    <li className="p-2 hover:bg-slate-300 rounded-full">
       <Link href={url}>
         <div className="">
           {route === url ? (
@@ -25,7 +25,9 @@ function ActiveState({ Icon, title }) {
   return (
     <div className="flex flex-row items-center">
       <Icon color="primary" />
-      <span className="font-bold ml-4 text-blue-600">{title}</span>
+      <span className="lg:block hidden font-bold ml-4 text-blue-600">
+        {title}
+      </span>
     </div>
   );
 }
@@ -33,7 +35,7 @@ function InactiveState({ Icon, title }) {
   return (
     <div className="flex flex-row items-center">
       <Icon />
-      <span className="ml-4">{title}</span>
+      <span className="lg:block hidden ml-4">{title}</span>
     </div>
   );
 }
