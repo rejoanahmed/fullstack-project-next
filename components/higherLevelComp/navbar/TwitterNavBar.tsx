@@ -15,8 +15,8 @@ const MoreStyledIcon = styled(MoreHorizIcon)`
 function TwitterNavBar() {
   const [moreClicked, setMoreClicked] = useState(false);
   return (
-    <div className="lg:w-56 sm:w-fit sm:h-screen sm:relative fixed bottom-0 left-0 right-0 p-2">
-      <aside className="hidden sm:block">
+    <div className="lg:w-52 sm:w-fit sm:relative px-2 fixed bottom-0 right-0 left-0">
+      <aside className="hidden h-screen sm:block sticky top-0">
         <div className="p-2 hover:bg-slate-300 rounded-full w-fit">
           <TwitterIcon color="primary" />
         </div>
