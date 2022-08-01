@@ -12,6 +12,9 @@ module.exports = {
       translate: {
         100: "100%",
       },
+      screens: {
+        sm: "576px",
+      },
     },
   },
   plugins: [],
