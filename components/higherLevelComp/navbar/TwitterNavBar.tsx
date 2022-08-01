@@ -7,6 +7,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { styled } from "@mui/material/styles";
 import ProfileBar from "../../lowerLevelComp/profileBar/profileBar";
 import HistoryEduRoundedIcon from "@mui/icons-material/HistoryEduRounded";
+import TwitterAppBarItem from "../../lowerLevelComp/TwitterAppBarItem";
 const MoreStyledIcon = styled(MoreHorizIcon)`
   border: 2px solid rgb(37 99 235);
   border-radius: 20px;
@@ -62,9 +63,16 @@ function TwitterNavBar() {
       </aside>
       <div className="sm:hidden">
         <ul className="flex justify-around items-center">
-          {["home", "explore", "notif", "messages"].map((tab) => (
-            <li key={tab}>{tab}</li>
-          ))}
+          {mockTwitterNavBarProps.AppBar.map(
+            ({ ActiveIcon, InactiveIcon, url }, id) => (
+              <TwitterAppBarItem
+                ActiveIcon={ActiveIcon}
+                InactiveIcon={InactiveIcon}
+                url={url}
+                key={id}
+              />
+            )
+          )}
         </ul>
       </div>
     </div>

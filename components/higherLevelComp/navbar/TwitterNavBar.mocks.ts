@@ -64,7 +64,33 @@ const base: props[] = [
     InactiveIcon: PersonOutlinedIcon,
   },
 ];
-
+const AppBar = [
+  {
+    title: "Home",
+    url: "/",
+    ActiveIcon: HomeRoundedIcon,
+    InactiveIcon: HomeOutlinedIcon,
+  },
+  {
+    title: "Explore",
+    url: "/explore",
+    ActiveIcon: TagRoundedIcon,
+    InactiveIcon: TagOutlinedIcon,
+  },
+  {
+    title: "Notifications",
+    url: "/notifications",
+    ActiveIcon: NotificationsRoundedIcon,
+    InactiveIcon: NotificationsNoneOutlinedIcon,
+  },
+  {
+    title: "Messages",
+    url: "/messages",
+    ActiveIcon: EmailRoundedIcon,
+    InactiveIcon: EmailOutlinedIcon,
+  },
+];
 export const mockTwitterNavBarProps = {
   base,
+  AppBar,
 };
